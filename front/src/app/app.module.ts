@@ -32,6 +32,7 @@ import { BoardUserComponent } from './components/board-user/board-user.component
 import { authInterceptorProviders } from '../app/helpers/auth.interceptor';
 import { ProfileComponent } from './components/profile/profile.component'
 import { HttpClientModule } from '@angular/common/http';
+import { UploadFilesComponent } from './components/upload-files/upload-files.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { HttpClientModule } from '@angular/common/http';
     BoardAdminComponent,
     BoardUserComponent,
     ProfileComponent,
+    UploadFilesComponent,
   ],
   imports: [
     BrowserModule,

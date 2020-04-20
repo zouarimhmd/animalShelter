@@ -1,0 +1,33 @@
+.box{
+    display: inline-block!important;
+}
+
+img {
+    border-radius: 50%;
+    width: 13%;
+    height: 13%;
+    margin-right: 2%;
+  }
+
+.label-file {
+    cursor: pointer;
+    color: #00b1ca;
+    font-weight: bold;
+}
+
+.label-file:hover {
+    color: #25a5c4;
+}
+
+// et on masque le input
+.input-file {
+    display: none;
+}
+
+.picture-div{
+    text-align: left;
+}
+
+.picture-label{
+display: block;
+}

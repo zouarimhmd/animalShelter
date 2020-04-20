@@ -2,6 +2,10 @@
   <mat-card-content>
     <form *ngIf="!isLoggedIn" [formGroup]="registerForm" novalidate>
       <h2>Signup</h2>
+
+      <app-upload-files>
+      </app-upload-files>
+
       <mat-error *ngIf="loginInvalid">
         The username and password were not recognised
       </mat-error>
@@ -27,10 +31,10 @@
         </mat-error>
       </mat-form-field>
 
-     
 
-  
-      <button mat-raised-button color="primary" (click)="signUp()">Login</button>
+      <div class="submit-btn">
+        <button mat-raised-button color="primary" (click)="signUp()" class="box">Login</button>
+      </div>
     </form>
   </mat-card-content>
 </mat-card>
