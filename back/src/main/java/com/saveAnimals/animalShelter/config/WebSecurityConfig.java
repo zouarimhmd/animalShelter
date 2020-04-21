@@ -58,8 +58,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests().antMatchers("/api/animalShelder/register/**").permitAll()
-                .antMatchers("/api/test/**","/api/animalShelder/signin/**").permitAll()
+                .authorizeRequests().antMatchers("/api/animalShelter/register/**").permitAll()
+                .antMatchers("/api/test/**","/api/animalShetder/signin/**","/api/animalShelter/upload/**").permitAll()
                 .anyRequest().authenticated();
 
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);

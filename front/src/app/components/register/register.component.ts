@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -7,7 +7,9 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
+
 export class RegisterComponent implements OnInit {
+  
   registerForm =  new FormGroup({
     email: new FormControl(),
     username: new FormControl(),

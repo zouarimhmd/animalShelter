@@ -1,7 +1,20 @@
-
 <div class="picture-div">
+
+
 <label class="picture-label" style="display: block;">Profile picture</label>
 <img id="profile-picture" src="../../../assets/img/avatarH.jpg" alt="Avatar" class="box">
-<label for="file" class="label-file" >Choisir une image</label>
+
+<label for="file" class="label-file" >Choose a picture</label>
+<div
+class="progress-bar progress-bar-info progress-bar-striped"
+role="progressbar"
+attr.aria-valuenow="{{ progress }}"
+aria-valuemin="0"
+aria-valuemax="100"
+[ngStyle]="{ width: progress + '%' }"
+>
+{{ progress }}%
+</div>
+    <div class="alert alert-light" role="alert">{{ message }}</div>
 <input id="file" class="box" class="input-file" type="file" (change)="selectFile($event)">
 </div>
