@@ -33,6 +33,7 @@ import { authInterceptorProviders } from '../app/helpers/auth.interceptor';
 import { ProfileComponent } from './components/profile/profile.component'
 import { HttpClientModule } from '@angular/common/http';
 import { UploadFilesComponent } from './components/upload-files/upload-files.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar'; 
 
 @NgModule({
   declarations: [
@@ -69,7 +70,7 @@ import { UploadFilesComponent } from './components/upload-files/upload-files.com
     MatOptionModule,
     MatProgressSpinnerModule,
     HttpClientModule,
-    
+    MatProgressBarModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

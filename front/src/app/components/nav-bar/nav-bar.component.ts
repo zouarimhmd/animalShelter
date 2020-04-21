@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { UploadFileService } from 'src/app/services/upload-file.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -17,7 +18,7 @@ export class NavBarComponent implements OnInit {
   navBarOptions = [{view :'Home', viewValue : '/home'}, {view :'About', viewValue : '/about'}, {view :'Adoptions', viewValue : '/adoptions'},
    {view :'Contact', viewValue : '/contact'}];
 
-  constructor(private loginService: AuthService, private tokenStorageService : TokenStorageService) { }
+  constructor(private tokenStorageService : TokenStorageService, private uploadFileService : UploadFileService ) { }
 
   ngOnInit() {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -31,6 +32,7 @@ export class NavBarComponent implements OnInit {
 
       this.username = user.username;
     }
+    this.uploadFileService.getFiles();
   }
 
   logout() {

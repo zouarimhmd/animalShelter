@@ -2,7 +2,7 @@ package com.saveAnimals.animalShelter.controllers;
 
 import com.saveAnimals.animalShelter.models.FileInfo;
 import com.saveAnimals.animalShelter.models.ResponseMessage;
-import com.saveAnimals.animalShelter.services.FileStorageService;
+import com.saveAnimals.animalShelter.services.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -21,14 +21,13 @@ import java.util.stream.Collectors;
 public class FileController {
 
     @Autowired
-    FileStorageService storageService;
+    FileService storageService;
 
     @PostMapping("/upload")
     public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
         String message = "";
         try {
             storageService.save(file);
-
             message = "Uploaded the file successfully: " + file.getOriginalFilename();
             return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
         } catch (Exception e) {

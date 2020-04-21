@@ -13,14 +13,16 @@ import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
-public class FileStorageServiceImpl implements FileStorageService {
+public class FileServiceImpl implements FileService {
 
     private final Path root = Paths.get("uploads");
 
     @Override
     public void init() {
         try {
-            Files.createDirectory(root);
+            if(!Files.exists(root)) {
+                Files.createDirectory(root);
+            }
         } catch (IOException e) {
             throw new RuntimeException("Could not initialize folder for upload!");
         }
@@ -29,6 +31,7 @@ public class FileStorageServiceImpl implements FileStorageService {
     @Override
     public void save(MultipartFile file) {
         try {
+            System.out.println(this.root.resolve(file.getOriginalFilename()));
             Files.copy(file.getInputStream(), this.root.resolve(file.getOriginalFilename()));
         } catch (Exception e) {
             throw new RuntimeException("Could not store the file. Error: " + e.getMessage());

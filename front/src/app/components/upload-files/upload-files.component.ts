@@ -25,12 +25,13 @@ export class UploadFilesComponent implements OnInit {
   }
 
   selectFile(event) {
+    this.progress = 0;
     this.selectedFiles = event.target.files;
-    this.upload();
+    this.progress = Math.round(100 * event.loaded / event.total);
+    this.progress = 100;
   }
 
   upload() {
-    this.progress = 0;
     this.currentFile = this.selectedFiles.item(0);
     this.uploadService.upload(this.currentFile).subscribe(
       event => {
