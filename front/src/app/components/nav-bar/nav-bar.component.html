@@ -28,8 +28,8 @@
                             <a *ngIf="isLoggedIn" (click)="logout()" title="Logout">
                                 <i class="fa fa-sign-out"></i>
                             </a>   
-                            <a *ngIf="isLoggedIn" (click)="logout()" title="Logout">
-                                <img id="profile-picture" src="../../../assets/img/avatarH.jpg" alt="Avatar" class="box">
+                            <a *ngIf="isLoggedIn">
+                                <img *ngIf="retrievedImage" id="profile-picture" [src]="retrievedImage" alt="Avatar" class="box">
                             </a>   
                         </div>
                     </div>
@@ -65,3 +65,4 @@
         </div>
     </div>
 </header>
+

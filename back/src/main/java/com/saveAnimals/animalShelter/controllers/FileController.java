@@ -49,7 +49,7 @@ public class FileController {
         return ResponseEntity.status(HttpStatus.OK).body(fileInfos);
     }
 
-    @GetMapping("/files/{filename:.+}")
+    @GetMapping("/files/{filename}")
     @ResponseBody
     public ResponseEntity<Resource> getFile(@PathVariable String filename) {
         Resource file = storageService.load(filename);

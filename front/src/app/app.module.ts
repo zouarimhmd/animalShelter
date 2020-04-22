@@ -70,7 +70,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatOptionModule,
     MatProgressSpinnerModule,
     HttpClientModule,
-    MatProgressBarModule
+    MatProgressBarModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

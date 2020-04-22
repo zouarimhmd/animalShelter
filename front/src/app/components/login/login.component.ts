@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-login',
@@ -20,9 +20,12 @@ export class LoginComponent implements OnInit {
     username : new FormControl(),
     password : new FormControl()
   });
+  message  : string;
 
   
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private messageService : MessageService) {
+    // this.messageService.sharedMessage.subscribe(message => this.message = message)
+   }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -48,7 +51,6 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = true;
       }
     );
-
   }
 
   reloadPage() {

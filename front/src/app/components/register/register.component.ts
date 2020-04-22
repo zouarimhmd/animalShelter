@@ -33,9 +33,7 @@ export class RegisterComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
-        console.log('up');
-        this.uploadFileComponent.upload();
-        console.log('down');
+        this.uploadFileComponent.upload(this.registerForm.controls.username.value);
       },
       err => {
         this.errorMessage = err.error.message;

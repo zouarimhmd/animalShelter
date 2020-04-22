@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,14 +8,12 @@ import { Observable } from 'rxjs';
 export class UploadFileService {
 
   private baseUrl = 'http://localhost:8080/api/animalShelter';
-
+ 
   constructor(private http: HttpClient) { }
 
-  upload(file: File): Observable<HttpEvent<any>> {
+  upload(file: File, newFilename: string): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
-
-    formData.append('file', file);
-
+    formData.append('file', file, newFilename+'jpg');
     const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData, {
       reportProgress: true,
       responseType: 'json'
@@ -27,4 +25,11 @@ export class UploadFileService {
   getFiles(): Observable<any> {
     return this.http.get(`${this.baseUrl}/files`);
   }
+
+  getFileByFileName(fileName: string): Observable<any> {
+    
+    return this.http.get(`${this.baseUrl}/files/${fileName}`, {responseType: 'blob'});
+  }
+
+  
 }
