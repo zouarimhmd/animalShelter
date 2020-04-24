@@ -33,14 +33,12 @@ export class UploadFilesComponent implements OnInit {
     this.progress = 0;
     this.selectedFiles = event.target.files;
     this.currentFile = this.selectedFiles.item(0);
-    console.log(this.currentFile);
     this.progress = Math.round(100 * event.loaded / event.total);
     this.progress = 100;
     this.message = 'File uploaded successfully !'
   }
 
   upload(fileName: string) {
-    console.log(fileName);
     this.currentFile.name
     this.uploadService.upload(this.currentFile, fileName).subscribe(
       event => {

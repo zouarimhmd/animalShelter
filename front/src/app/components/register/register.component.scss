@@ -5,18 +5,20 @@ h1 {
 }
 
 mat-card {
-  max-width: 30%; 
+  max-width: 80%; 
   margin: 2em auto;
   text-align: center;
 }
-    
+
     
 mat-form-field {
-  display: block;
+  display: inline-block;
+  width: 33%;
 }
 
 button.mat-raised-button.mat-button-base.mat-primary{
     margin-top: 7% !important;
+    display: inline-block;
 }
 
 .box{
@@ -24,10 +26,24 @@ button.mat-raised-button.mat-button-base.mat-primary{
 }
 
 .submit-btn{
-  margin-left: 40%;
+text-align: center;
 }
 
 ::ng-deep .mat-form-field-infix{
   margin-top: 5%;
 }
+
+.ligne{
+  text-align: center;
+}
+
+mat-form-field.full-width-input-right {
+  margin-left: 10%;
+}
+
+mat-form-field.full-width-input-left {
+  margin-right: 10%;
+}
+
+
 

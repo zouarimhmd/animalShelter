@@ -25,7 +25,9 @@ import { MatToolbarModule,
          MatSlideToggleModule,
          MatSelectModule,
          MatOptionModule,
-         
+         MatDatepickerModule,
+         MatNativeDateModule,
+         MatRadioModule,
         } from '@angular/material';
 import { BoardAdminComponent } from './components/board-admin/board-admin.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
@@ -71,6 +73,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatProgressSpinnerModule,
     HttpClientModule,
     MatProgressBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

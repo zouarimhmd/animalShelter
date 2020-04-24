@@ -1,39 +1,81 @@
 <mat-card>
   <mat-card-content>
     <form *ngIf="!isLoggedIn" [formGroup]="registerForm" novalidate>
-      <h2>Signup</h2>
+      <h2>Sign up</h2>
+        <app-upload-files>
+        </app-upload-files>
+     
+      <div fxLayout="row" class="ligne">
+        <mat-form-field class="full-width-input-left">
+          <input matInput placeholder="name" formControlName="name" required>
+          <mat-error>
+            Please provide a valid name
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input-right">
+          <input matInput placeholder="lastname" formControlName="lastname" required>
+          <mat-error>
+            Please provide a valid lastname
+          </mat-error>
+        </mat-form-field>
+      </div>
 
-      <app-upload-files>
-      </app-upload-files>
+      <div fxLayout="row" class="ligne">
+        <mat-form-field class="full-width-input-left">
+          <input matInput placeholder="username" formControlName="username" required>
+          <mat-error>
+            Please provide a valid username
+          </mat-error>
+        </mat-form-field>
 
-      <mat-error *ngIf="loginInvalid">
-        The username and password were not recognised
-      </mat-error>
 
-      <mat-form-field class="full-width-input">
-        <input matInput placeholder="E-mail" formControlName="email" required>
-        <mat-error>
-          Please provide a valid email address
-        </mat-error>
-      </mat-form-field>
+        <mat-form-field class="full-width-input-right">
+          <input matInput placeholder="E-mail" formControlName="email" required>
+          <mat-error>
+            Please provide a valid email address
+          </mat-error>
+        </mat-form-field>
+      </div>
 
-      <mat-form-field class="full-width-input">
-        <input  matInput placeholder="username" formControlName="username" required>
-        <mat-error>
-          Please provide a valid username
-        </mat-error>
-      </mat-form-field>
+      <div fxLayout="row" class="ligne">
+        <mat-form-field class="full-width-input-left">
+          <mat-label>Angular forms</mat-label>
+          <input matInput [matDatepicker]="myDatePicker" formControlName="birthDate">
+          <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #myDatePicker></mat-datepicker>
+        </mat-form-field>
 
-      <mat-form-field class="full-width-input">
-        <input matInput type="password" placeholder="Password" formControlName="password" required>
-        <mat-error>
-          Please provide a valid password
-        </mat-error>
-      </mat-form-field>
+        <mat-form-field class="full-width-input-right">
+          <mat-label>sex</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let sex of sexes" [value]="sex">
+              {{sex}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" class="ligne">
+        <mat-form-field class="full-width-input-left">
+          <input matInput type="password" placeholder="Password" formControlName="password" required>
+          <mat-error>
+            Please provide a valid password
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input-right">
+          <input matInput type="passwordConfirm" placeholder="Confirm password" formControlName="passwordConfirm"
+            required>
+          <mat-error>
+            Please provide a valid password
+          </mat-error>
+        </mat-form-field>
+      </div>
+
 
 
       <div class="submit-btn">
-        <button mat-raised-button color="primary" (click)="signUp()" class="box">Login</button>
+        <button mat-raised-button color="primary" (click)="signUp()" class="box">Sign up</button>
       </div>
     </form>
   </mat-card-content>
